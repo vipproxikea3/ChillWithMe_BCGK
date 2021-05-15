@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Chill With Me</title>
+
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Font Quicksand -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito"
+            rel="stylesheet"
+        />
+
+        <!-- font-awesome icons -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+            crossorigin="anonymous"
+        />
+
+        <!-- Styles -->
+        <link href="../../public/css/app.css" rel="stylesheet" />
+
+        <!-- Bootstrap 4 -->
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <div id="app">
+            <nav class="navbar navbar-expand-md bg-transparent text-white mt-3">
+                <div class="container">
+                    <a class="navbar-brand font-weight-bold" href="#">
+                        ChillWithMe
+                    </a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div
+                        class="collapse navbar-collapse"
+                        id="navbarSupportedContent"
+                    >
+                        <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav mr-auto"></ul>
+
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Authentication Links -->
+                            <!-- Chưa đăng nhập -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Đăng nhập</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Đăng ký</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="py-4">
+                <div class="container-fluid">
+                    <div class="row d-flex justify-content-center">
+                        <img
+                            class="register-image mt-3"
+                            src="../../public/img/listening.svg"
+                            alt=""
+                        />
+                    </div>
+                    <div class="row d-flex justify-content-center mt-3">
+                        <form
+                            id="form-register"
+                            method="POST"
+                            action="{{ route('register') }}"
+                        >
+                            <div class="form-group row">
+                                <input
+                                    placeholder="Họ và tên"
+                                    id="name"
+                                    type="text"
+                                    class="
+                                        input-register
+                                        @error('name')
+                                        is-invalid
+                                        @enderror
+                                    "
+                                    name="name"
+                                    required
+                                    autocomplete="name"
+                                    autofocus
+                                />
+                            </div>
+
+                            <div class="form-group row">
+                                <input
+                                    placeholder="Tên đăng nhập"
+                                    id="email"
+                                    type="email"
+                                    class="
+                                        input-register
+                                        @error('email')
+                                        is-invalid
+                                        @enderror
+                                    "
+                                    name="email"
+                                    required
+                                    autocomplete="email"
+                                />
+                            </div>
+
+                            <div class="form-group row">
+                                <input
+                                    placeholder="Mật khẩu"
+                                    id="password"
+                                    type="password"
+                                    class="
+                                        input-register
+                                        @error('password')
+                                        is-invalid
+                                        @enderror
+                                    "
+                                    name="password"
+                                    required
+                                    autocomplete="new-password"
+                                />
+                            </div>
+
+                            <div class="form-group row">
+                                <input
+                                    placeholder="Nhập lại mật khẩu"
+                                    id="password-confirm"
+                                    type="password"
+                                    class="input-register"
+                                    name="password_confirmation"
+                                    required
+                                    autocomplete="new-password"
+                                />
+                            </div>
+
+                            <div class="form-group row">
+                                <button
+                                    id="register-btn"
+                                    type="submit"
+                                    class="btn btn-outline-success"
+                                >
+                                    Đăng ký
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+    <!-- Bootstrap 4 -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+    ></script>
+
+    <!-- Scripts -->
+    <!-- <script src="./js/room.js"></script> -->
+</html>

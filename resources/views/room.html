@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Chill With Me</title>
+
+        <!-- JQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Font Quicksand -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito"
+            rel="stylesheet"
+        />
+
+        <!-- font-awesome icons -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+            crossorigin="anonymous"
+        />
+
+        <!-- Styles -->
+        <link href="../../public/css/app.css" rel="stylesheet" />
+
+        <!-- Bootstrap 4 -->
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <div id="app">
+            <nav class="navbar navbar-expand-md bg-transparent text-white mt-3">
+                <div class="container">
+                    <a class="navbar-brand font-weight-bold" href="#">
+                        ChillWithMe
+                    </a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div
+                        class="collapse navbar-collapse"
+                        id="navbarSupportedContent"
+                    >
+                        <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav mr-auto"></ul>
+
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Authentication Links -->
+                            <!-- Chưa đăng nhập -->
+                            <!-- <li class="nav-item">
+                                <a class="nav-link" href="#">Đăng nhập</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Đăng ký</a>
+                            </li> -->
+                            <!-- Đã đăng nhập -->
+                            <li class="nav-item dropdown">
+                                <a
+                                    id="navbarDropdown"
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    role="button"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    v-pre
+                                >
+                                    Đồng Quang Quý
+                                </a>
+
+                                <div
+                                    class="
+                                        dropdown-menu
+                                        bg-transparent
+                                        dropdown-menu-right
+                                    "
+                                    aria-labelledby="navbarDropdown"
+                                >
+                                    <a class="dropdown-item" href="./home.html"
+                                        >Cá nhân</a
+                                    >
+                                    <a
+                                        class="dropdown-item"
+                                        href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();"
+                                    >
+                                        Đăng xuất
+                                    </a>
+
+                                    <form
+                                        id="logout-form"
+                                        action="#"
+                                        method="POST"
+                                        class="d-none"
+                                    ></form>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="py-4">
+                <div class="room-content container-fluid">
+                    <div class="row d-flex">
+                        <span class="mr-5"
+                            ><strong>Chủ phòng: </strong>Đồng Quang Quý</span
+                        >
+                        <span><strong>Mã phòng: </strong>1</span>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="main-left col-7">
+                            <div class="row">
+                                <form id="form-search">
+                                    <input
+                                        placeholder="Tìm kiếm"
+                                        type="text"
+                                        name="keyword"
+                                        id="input-search"
+                                    />
+                                </form>
+                            </div>
+                            <div class="row result-list mt-5">
+                                <div id="result-list" class="col-12"></div>
+                            </div>
+                        </div>
+                        <div class="main-right col-5">
+                            <div style="display: none" id="player"></div>
+                            <marquee
+                                id="playing-title"
+                                class="row playing-title"
+                                direction="left"
+                            ></marquee>
+                            <div class="row d-flex justify-content-center my-3">
+                                <img
+                                    id="playing-disk"
+                                    class="playing-disk"
+                                    alt=""
+                                />
+                            </div>
+                            <div class="row d-flex justify-content-center my-3">
+                                <button
+                                    onclick="nextSong()"
+                                    style="border: none"
+                                    type="button"
+                                    class="btn btn-outline-success"
+                                >
+                                    <i
+                                        class="fa fa-step-forward"
+                                        aria-hidden="true"
+                                    ></i>
+                                </button>
+                            </div>
+                            <div id="queue" class="queue">
+                                @foreach ($songs as $song)
+                                <div class="row queue-item my-3 px-5">
+                                    <div
+                                        class="
+                                            queue-item-title
+                                            d-flex
+                                            flex-column
+                                            justify-content-center
+                                        "
+                                    >
+                                        <span>{{$song->title}} </span>
+                                    </div>
+                                    <div class="queue-item-play">
+                                        <button
+                                            style="border: none"
+                                            type="button"
+                                            class="btn btn-outline-success"
+                                        >
+                                            <i
+                                                class="fa fa-play"
+                                                aria-hidden="true"
+                                            ></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Button trigger modal -->
+                    <button
+                        id="showChatBox"
+                        type="button"
+                        onclick="showChatBox()"
+                        class="chat-box-btn btn btn-outline-success btn-lg"
+                        data-toggle="modal"
+                        data-target="#chatBoxModal"
+                    >
+                        <i class="fa fa-comments" aria-hidden="true"></i>
+                    </button>
+
+                    <!-- Modal -->
+                    <div
+                        class="modal fade"
+                        id="chatBoxModal"
+                        tabindex="-1"
+                        role="dialog"
+                        aria-labelledby="exampleModalLabel"
+                        aria-hidden="true"
+                    >
+                        <div class="modal-dialog" role="document">
+                            <div class="box-chat modal-content">
+                                <div class="modal-header">
+                                    <h5
+                                        class="modal-title"
+                                        id="exampleModalLabel"
+                                    >
+                                        Trò chuyện
+                                    </h5>
+                                    <button
+                                        type="button"
+                                        class="close"
+                                        data-dismiss="modal"
+                                        aria-label="Close"
+                                    >
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div
+                                    id="box-chat-body"
+                                    class="box-chat-body modal-body"
+                                >
+                                    @foreach ($messages as $message)
+                                    <p>
+                                        <strong>{{$message->userName}}: </strong
+                                        >{{$message->message}}
+                                    </p>
+                                    @endforeach
+                                </div>
+                                <div class="modal-footer">
+                                    <form
+                                        id="form-message"
+                                        class="form-message"
+                                        action=""
+                                    >
+                                        <div class="input-group">
+                                            <input
+                                                name="message"
+                                                id="input-message"
+                                                type="text"
+                                                class="form-control"
+                                                required
+                                            />
+                                            <div class="input-group-append">
+                                                <button
+                                                    class="
+                                                        btn btn-outline-success
+                                                    "
+                                                    type="submit"
+                                                >
+                                                    <i
+                                                        class="
+                                                            fa fa-paper-plane
+                                                        "
+                                                        aria-hidden="true"
+                                                    ></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+    <!-- Bootstrap 4 -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+    ></script>
+
+    <!-- Scripts -->
+    <!-- <script src="./js/room.js"></script> -->
+</html>
