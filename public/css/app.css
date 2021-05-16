@@ -1,5 +1,5 @@
 body {
-    font-family: "QuickSand", sans-serif !important;
+    font-family: 'QuickSand', sans-serif !important;
     color: #ffffff !important;
     background-color: #121212 !important;
 }
@@ -43,14 +43,6 @@ a:hover {
     color: #fff !important;
 }
 
-#form-inputIdRoom {
-    width: 30%;
-}
-
-.welcome-image {
-    width: 30%;
-}
-
 #inputIdRoom {
     box-sizing: border-box;
     margin-top: 5rem;
@@ -60,14 +52,6 @@ a:hover {
     border-radius: 2rem;
     background: #121212;
     color: #fff !important;
-}
-
-#form-login {
-    width: 30%;
-}
-
-.login-image {
-    width: 20%;
 }
 
 .input-login {
@@ -90,14 +74,6 @@ a:hover {
     height: 4rem;
     border-radius: 2rem;
     border-width: 2px;
-}
-
-#form-register {
-    width: 30%;
-}
-
-.register-image {
-    width: 20%;
 }
 
 .input-register {
