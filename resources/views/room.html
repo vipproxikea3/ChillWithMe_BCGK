@@ -44,7 +44,14 @@
 
     <body>
         <div id="app">
-            <nav class="navbar navbar-expand-md bg-transparent text-white mt-3">
+            <nav
+                class="
+                    navbar navbar-dark navbar-expand-md
+                    bg-dark
+                    text-white
+                    mt-3
+                "
+            >
                 <div class="container">
                     <a class="navbar-brand font-weight-bold" href="#">
                         ChillWithMe
@@ -127,14 +134,16 @@
 
             <main class="py-4">
                 <div class="room-content container-fluid">
-                    <div class="row d-flex">
-                        <span class="mr-5"
+                    <div class="row">
+                        <span class="col-lg-3 col-md-4 col-12"
                             ><strong>Chủ phòng: </strong>Đồng Quang Quý</span
                         >
-                        <span><strong>Mã phòng: </strong>1</span>
+                        <span class="col-lg-3 col-md-4 col-12"
+                            ><strong>Mã phòng: </strong>1</span
+                        >
                     </div>
                     <div class="row mt-5">
-                        <div class="main-left col-7">
+                        <div class="main-left col d-none d-lg-block d-xl-block">
                             <div class="row">
                                 <form id="form-search">
                                     <input
@@ -149,18 +158,19 @@
                                 <div id="result-list" class="col-12"></div>
                             </div>
                         </div>
-                        <div class="main-right col-5">
-                            <div style="display: none" id="player"></div>
+                        <div class="main-right col d-lg-block d-xl-block">
                             <marquee
                                 id="playing-title"
                                 class="row playing-title"
                                 direction="left"
-                            ></marquee>
+                                >Nàng Thơ</marquee
+                            >
                             <div class="row d-flex justify-content-center my-3">
                                 <img
                                     id="playing-disk"
                                     class="playing-disk"
                                     alt=""
+                                    src="http://i3.ytimg.com/vi/Zzn9-ATB9aU/maxresdefault.jpg"
                                 />
                             </div>
                             <div class="row d-flex justify-content-center my-3">
@@ -177,8 +187,7 @@
                                 </button>
                             </div>
                             <div id="queue" class="queue">
-                                @foreach ($songs as $song)
-                                <div class="row queue-item my-3 px-5">
+                                <div class="row queue-item my-3">
                                     <div
                                         class="
                                             queue-item-title
@@ -187,7 +196,11 @@
                                             justify-content-center
                                         "
                                     >
-                                        <span>{{$song->title}} </span>
+                                        <span
+                                            >amee & hoàng dũng - nàng thơ.. trời
+                                            giấu trời mang đi | ‘dreamee’ live
+                                            acoustic show</span
+                                        >
                                     </div>
                                     <div class="queue-item-play">
                                         <button
@@ -202,10 +215,130 @@
                                         </button>
                                     </div>
                                 </div>
-                                @endforeach
+                                <div class="row queue-item my-3">
+                                    <div
+                                        class="
+                                            queue-item-title
+                                            d-flex
+                                            flex-column
+                                            justify-content-center
+                                        "
+                                    >
+                                        <span
+                                            >Nàng Thơ (Lofi Ver.) - Hoàng Dũng x
+                                            Freak D</span
+                                        >
+                                    </div>
+                                    <div class="queue-item-play">
+                                        <button
+                                            style="border: none"
+                                            type="button"
+                                            class="btn btn-outline-success"
+                                        >
+                                            <i
+                                                class="fa fa-play"
+                                                aria-hidden="true"
+                                            ></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row queue-item my-3">
+                                    <div
+                                        class="
+                                            queue-item-title
+                                            d-flex
+                                            flex-column
+                                            justify-content-center
+                                        "
+                                    >
+                                        <span
+                                            >Nàng Thơ - Hoàng Dũng 「Official
+                                            Lyrics Video」</span
+                                        >
+                                    </div>
+                                    <div class="queue-item-play">
+                                        <button
+                                            style="border: none"
+                                            type="button"
+                                            class="btn btn-outline-success"
+                                        >
+                                            <i
+                                                class="fa fa-play"
+                                                aria-hidden="true"
+                                            ></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row queue-item my-3">
+                                    <div
+                                        class="
+                                            queue-item-title
+                                            d-flex
+                                            flex-column
+                                            justify-content-center
+                                        "
+                                    >
+                                        <span
+                                            >NÀNG THƠ x YẾU ĐUỐI | Hoàng Dũng
+                                            ft. Khán giả [at CONCERT 25]</span
+                                        >
+                                    </div>
+                                    <div class="queue-item-play">
+                                        <button
+                                            style="border: none"
+                                            type="button"
+                                            class="btn btn-outline-success"
+                                        >
+                                            <i
+                                                class="fa fa-play"
+                                                aria-hidden="true"
+                                            ></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row queue-item my-3">
+                                    <div
+                                        class="
+                                            queue-item-title
+                                            d-flex
+                                            flex-column
+                                            justify-content-center
+                                        "
+                                    >
+                                        <span
+                                            >[KARAOKE] Nàng Thơ - Hoàng Dũng |
+                                            KARAOKE - BEAT GỐC</span
+                                        >
+                                    </div>
+                                    <div class="queue-item-play">
+                                        <button
+                                            style="border: none"
+                                            type="button"
+                                            class="btn btn-outline-success"
+                                        >
+                                            <i
+                                                class="fa fa-play"
+                                                aria-hidden="true"
+                                            ></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- Button switch screen -->
+                    <button
+                        id="switch-btn"
+                        type="button"
+                        onclick="switchScreen()"
+                        class="
+                            d-block d-lg-none d-xl-none
+                            switch-screen-btn
+                            btn btn-outline-success btn-lg
+                        "
+                    >
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
                     <!-- Button trigger modal -->
                     <button
                         id="showChatBox"
@@ -308,5 +441,5 @@
     ></script>
 
     <!-- Scripts -->
-    <!-- <script src="./js/room.js"></script> -->
+    <script src="../../public/js/room.js"></script>
 </html>
