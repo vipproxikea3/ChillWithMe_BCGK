@@ -51,7 +51,7 @@ $('document').ready(function () {
         var thumb = item.snippet.thumbnails.high.url;
         var channelTitle = item.snippet.channelTitle;
         var output =
-            '<div class="row p-2 result-item" data-item-idvideo="' +
+            '<div class="row py-2 result-item" data-item-idvideo="' +
             videoID +
             '" data-item-thumbnail="' +
             thumb +
@@ -60,10 +60,10 @@ $('document').ready(function () {
             '" data-item-channeltitle="' +
             channelTitle +
             '" onclick="addQueue(this)">' +
-            '<img class="col-12 result-item-thumbnail" src="' +
+            '<img class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 result-item-thumbnail" src="' +
             thumb +
             '" alt="">' +
-            '<div class="col-12 result-item-info pl-3">' +
+            '<div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 result-item-info pl-3">' +
             '<div class="py-1 result-item-info-title">' +
             '<span class="result-item-info-title-text">' +
             title +
